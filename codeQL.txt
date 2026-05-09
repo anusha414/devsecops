@@ -1,0 +1,11 @@
+👉 CodeQL is like a very smart search engine for code.
+Instead of:
+“Search for this exact word”
+
+It lets you ask questions like:
+“Show me every place where user input goes directly into the database”
+“Find code that looks safe but can actually be hacked”
+“Are there risky patterns repeated across the entire project?”
+
+CodeQL is a semantic code analysis engine that treats code as data and lets you query it to find security vulnerabilities and code quality issues.
+  
