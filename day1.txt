@@ -1,0 +1,28 @@
+Video:- https://www.youtube.com/watch?v=Th7_WCIMjEo&list=PLdpzxOOAlwvLRR_KPxSKCJMf2qDNKrGd-&index=8
+1. devsecops is a devops with security mindset.
+eg:- security implementions for the tools that are used by devops guys on a daily basis
+1.1 GIT:- pre-commit hooks
+  Developers might accidentally push pem files and encoded passwords into git repositories, pre-commit hooks validates if there is any sensitive information.
+  Repos can also have RBAC which means only specifc people with access can push the code create branches etc.
+1.2 IAC:- secret management solution like vault
+1.3 Scripting:- looks at low vulnerabilities python packages should be installed.
+1.4 Containers:- do not run container using root user, use distroless images, multi-stage builds
+1.5 k8s:- setup VPC, private subnet and then k8s cluster, secret management solution
+1.6 CI/CD:- SAST
+
+NOTE:- the most important principle of devsecops is "shiftleft", left is where application development starts and right is where app will be deployed to prod.
+  Security must start at the very beginning of the application development instead of considering it at the end.
+
+NOTE:- In todays world lot of organizations are using AI to create the codes, as it it via AI i might have lot of vulnerabilities, to get rid of that devsecops is really
+  very helpful.
+
+Threat modeling:- 
+1.If you go to a company that already has devops practices but they are reluctant to implement new tools into their pipelines, you can convince them using
+  threat modeling, using this we can generate a security report for ur existing pipelines and infrastrcuture.
+2. Threat modeling is used Identify the issues, Analyse the issue and mitigate the issue.
+3. Use Owasp threat dragon software to create threat modeling report.
+
+
+  
+  
+  
