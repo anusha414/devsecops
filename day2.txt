@@ -1,0 +1,39 @@
+SECURING GIT:-(https://github.com/iam-veeramalla/DevSecOps-Zero-to-Hero/blob/main/02-Git/README.md)
+Video:- https://www.youtube.com/watch?v=Gd-AiV--LHs&list=PLdpzxOOAlwvLRR_KPxSKCJMf2qDNKrGd-&index=8
+
+1. .gitignore file:- 
+  It is very simple security implementation for your repo
+  Developers might accidentally push pem files and encoded passwords into git repositories, To avois this we will use .gitignore, this contains a list of files that will tell git
+  not to track them. So now you can add the .pem and .env in the .gitignore and those will be ignore by git and will not be pushed to git repo even if we try to commit them locally.
+  NOTE:- tal to developers and qa and list all the files that must be ignored by git.
+
+2. pre-commit hooks:-
+    Even though you are talking care of ignore pem and env files in .gitignore, what if some junior developer mistakenly hardcodes the secrets in .py files.
+    .gitignore is for known files and pre-commit hooks is for patterns.
+    In .git/hooks folder you must create a pre-commit file. pre-commit is a script that will be excuted everytime a commit is being pushed.
+    NOTE:- the script must be updated to handle multiple patterns like token, api-key, aws-credentials, as a devops engineer i might not be good at writing script. there is
+    solution called pre-commit framework, add a pre-commit.yaml file (contains git leaks) in the repo and the runner must have pre-commit framework installed
+
+3. Git Leaks:-(Repository and history scanning)
+    Using .gitignore and pre-commit hooks you can prevent anyone from pushing secrets to github. what if someone has already pushed the secrets to the github in the past before
+    using .gitignore or pre-commit hooks and they reverted it but git remembers everything the secret can still be tracked in commit history.
+    Git leaks will help us find such commits in the past "gitleaks detect", this will check all the commits that exists on that repo.
+
+4. Branch protection rules:-
+    We should never be able to push any changes directly to main branch, it should only go through pull request. such restrictions can be applied in branch protection rules.
+
+5. RBAC:-
+    In collaborators section of settings u can add people and provide access(read, write)
+
+6. Mandatory reviews:-
+    everytime a pull request is created it must be reviewed by few peoplw by default then only it can be meregd.
+    settings->branch->require a PR before merging->required approvals->2
+    settings->branch->require review from specific team
+
+7. CODEOWNERS:-
+    a repo in an organization can have multiple contributors, only specific people can have access to review the PR. they must be added in the codeowners file
+    In our case we created "CODEOWNERS" file in the .github folder
+               settings->branch->require review from codeowners
+
+8. Dependabot:-
+    It will look into the packages used by your applications
