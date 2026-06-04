@@ -1,3 +1,40 @@
 SECURING CONTAINERS:-
 
-1. 
+1. Non-Root user:-
+
+2. Multi-stage build:-
+
+The size of the image created is too huge somewhere around 400MB even for simple images like helloworld.
+How container image size impacts security? It does impact when image size is more it means container has lot of packages.
+It has 2 types of packages:- 1) system packages that were installed with base image eg:- FROM node:25
+2) Application packages:- to build the code we have installed packages from internet using "npm install", these packages are required only during build stage and not required when the application is running but these packages might stay even during application runtime.
+During runtime or run stage we will require a binary file or jar or war files and runtime environment.
+If you still have packages with older versions that have vulnerabilities in the container images bad actors might attact you container and security might be compromised.
+The solution is multi-stage build, first stage will be build ans second stage is run stage, and image will have only run-stage artifacts.
+
+NOTE:- Eveen the image size looks small, the container image which is using slim as base image might still have some packages like "apt" which are useless and unneccessary.
+This is where distroless images can help
+
+3. Distroless Images:-
+The only change we make here just change the base image in the run stage to a distroless base image.
+The only disadvantage is ditroless image might have older version when compared to dockerhub actual images.
+
+4. .dockerignore:-
+We are using copy . . copies everything to docker images.
+To ignore specific files you can add them in .dockerignore
+
+5. Hardening run command:-
+
+docker run \
+  --read-only \
+  --tmpfs /tmp \
+  --cap-drop ALL \
+  --security-opt no-new-privileges \
+  --pids-limit 100 \
+  --memory 256m \
+  --cpus 0.5 \
+  -p 3000:3000 \
+  secure-app
+
+read-only:- the process running becomes readonly, what if process wants to write to host file system? you can use temporary filesystem tmpfs
+tmpf:- prevents hacker from creating anything because it is running as readonly
