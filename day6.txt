@@ -14,11 +14,12 @@ SCA(software composition Analysis0:-
 1. It looks at direct and indirect dependencies the application is using. for eg:- u might use a flask which is direct dependency but flask might be internallu using dependencies
     which are indirect and they might be prone to security threat.
 2. Practically managing 1000's of indirect dependencies and 100's of direct dependencies is difficult.
-3. every programming language has a SCA tools.
+3. every programming language has a SCA tools. pip-audit is for python and it gives the list of vulnerabilities.
 
 DAST(Dynamic application security testing):-
 
 1. It is similar to SAST but only at runtime, SAST looks at source code of your application, but DAST uses url of our application and tests the application for security of
   application.
 2. This is very important because this is how hackers work try to hack your application using 1000's of api calls to the application.
+3. OWASP ZAP is a DAST tool.
 
