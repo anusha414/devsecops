@@ -1,6 +1,21 @@
 SECURING CONTAINERS:-
 
 1. Non-Root user:-
+Running a Docker container as root gives it full admin privileges inside the container, which can be dangerous if the app is compromised.
+Because containers share the host OS kernel, a root-level exploit could potentially impact the host system or other containers.
+That’s why it’s avoided—to reduce security risks and follow least-privilege principles.
+
+for k8s to run as non-root user:-
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
+          capabilities:
+            drop:
+              - ALL
+              - NET_RAW
+          seccompProfile:
+            type: RuntimeDefault
 
 2. Multi-stage build:-
 
