@@ -18,6 +18,7 @@ Video:- https://www.youtube.com/watch?v=Gd-AiV--LHs&list=PLdpzxOOAlwvLRR_KPxSKCJ
     Using .gitignore and pre-commit hooks you can prevent anyone from pushing secrets to github. what if someone has already pushed the secrets to the github in the past before
     using .gitignore or pre-commit hooks and they reverted it but git remembers everything the secret can still be tracked in commit history.
     Git leaks will help us find such commits in the past "gitleaks detect", this will check all the commits that exists on that repo.
+NOTe:- this is helpful so that we can know which secret got exposed and rotate it immediately.
 
 4. Branch protection rules:-
     We should never be able to push any changes directly to main branch, it should only go through pull request. such restrictions can be applied in branch protection rules.
