@@ -1,6 +1,8 @@
 SECURING GIT:-(https://github.com/iam-veeramalla/DevSecOps-Zero-to-Hero/blob/main/02-Git/README.md)
 Video:- https://www.youtube.com/watch?v=Gd-AiV--LHs&list=PLdpzxOOAlwvLRR_KPxSKCJMf2qDNKrGd-&index=8
 
+Secure your repository by providing access to only few people.
+
 1. .gitignore file:- 
   It is very simple security implementation for your repo
   Developers might accidentally push pem files and encoded passwords into git repositories, To avois this we will use .gitignore, this contains a list of files that will tell git
@@ -38,3 +40,4 @@ NOTe:- this is helpful so that we can know which secret got exposed and rotate i
 
 8. Dependabot:-
     It will look into the packages used by your applications
+    looks at online package registries to find newer or vulnerable dependency versions and updates your code automatically.
