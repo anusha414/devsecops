@@ -27,7 +27,10 @@ During runtime or run stage we will require a binary file or jar or war files an
 If you still have packages with older versions that have vulnerabilities in the container images bad actors might attact you container and security might be compromised.
 The solution is multi-stage build, first stage will be build ans second stage is run stage, and image will have only run-stage artifacts.
 
-NOTE:- Eveen the image size looks small, the container image which is using slim as base image might still have some packages like "apt" which are useless and unneccessary.
+NOTE:- first we are copying package.json, even if we do copy . . because docker uses caching, if there are no changes in packages.json same layers will be used.
+so install the dependencies first and then copy the entore source code.
+
+NOTE:- Even the image size looks small, the container image which is using slim as base image might still have some packages like "apt" which are useless and unneccessary.
 This is where distroless images can help
 
 3. Distroless Images:-
