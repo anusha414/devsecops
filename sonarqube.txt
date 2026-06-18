@@ -1,0 +1,38 @@
+SonarQube = a tool that automatically scans your code to find bugs, security issues, and bad coding practices before your code goes to production.
+
+🔍 What it does
+SonarQube performs static code analysis (analyzes code without running it) to detect:
+🐞 Bugs
+🔐 Security vulnerabilities
+⚠️ Code smells (poor coding practices)
+🔁 Duplicate code
+📊 Code quality metrics (coverage, complexity, technical debt)
+
+⚙️ How it works (in real projects)
+Developer writes code
+Code is pushed to Git (GitHub, GitLab, etc.)
+CI/CD pipeline runs SonarQube scan
+SonarQube:
+  Analyzes code
+  Generates a report
+  Applies Quality Gates (pass/fail rules)
+If code quality is poor → build can fail ❌
+
+NOTE:- Sonarqube is compatible with all kind of platforms such as java, python, dotnet
+There are 2 version for sonarqube:-
+1. Community version:- free
+2. Developer version:- paid
+
+2 ways to install sonarqube:-
+1. install and configure it
+2. or you can create sonarqube docker container
+
+Quality Profiles:-
+Each programming language (java, c++, c, html) will have some st of already rules, so whenver we call the sonarqube based on the programming language it will check for those
+rules, If any rule fails then it will be added as issue in the report.
+You can activate or decativate the rules
+You can create custom quality profiles.
+
+How to configure sonarqube?
+1. Create a project in sonarqube and generate a token.
+2. pass the project name and token to github actions pipeline and the pipeline must have a sonarqube step included.
